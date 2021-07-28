@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="flex flex-col justify-center items-center">
-    <div class="col-md-8 w-1/2">
+    <div class="w-1/2">
         <div class="card">
             <div class="text-lg mb-5 border-b-2 border-fuchsia-600 -mx-5">
                 <div class="px-6 pb-2">
@@ -11,10 +11,10 @@
             </div>
 
             <div class="card-body">
-                <form method="POST" class="w-full max-w-xl" action="{{ route('login') }}">
+                <form method="POST" action="{{ route('login') }}" class="w-full max-w-xl">
                     @csrf
 
-                    <div class="md:flex md:items-center mb-6">
+                    <div class="login-content">
                         <div class="md:w-1/2">
                             <label for="email" class="login-label">{{ __('E-Mail Address') }}</label>
                         </div>
@@ -23,7 +23,7 @@
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror login-input" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                             @error('email')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="alert-text">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
@@ -39,7 +39,7 @@
                             <input id="password" type="password" class="form-control @error('password') is-invalid @enderror login-input" name="password" required autocomplete="current-password">
 
                             @error('password')
-                                <span class="invalid-feedback" role="alert">
+                                <span class="alert-text">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
